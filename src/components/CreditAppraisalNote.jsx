@@ -2,27 +2,43 @@ import React from "react";
 
 const CreditAppraisalNote = () => {
   const [formData, setFormData] = React.useState({
-    borrowerName: "श्री. शार्दुल पांडुरंग सौम्यश्री",
-    mobileNumber: "९४०४८५४५७३",
-    address: "रा. राहुड ता. चांदवड जि. नाशिक",
-    occupation: "शेती",
-    totalIncome: "३०,०००/-",
-    loanAmount: "५०,०००/-",
-    loanReason: "नवीन BAJAJ PLATINA 100 घेण्यासाठी",
-    annualIncome: "२,००,०००/-",
-    guarantors: ["सौ. सुमिता केशव पवार", "श्री. बाळु त्रिंबक कांबळे"],
-    loanLimit: "५०,०००/-",
-    approvedAmount: "५०,०००/-",
+    date: new Date().toISOString().split("T")[0],
+    borrowerAccountNo: "",
+    borrowerName: "",
+    mobileNumber: "",
+    address: "",
+    occupation: "",
+    totalIncome: "",
+    loanAmount: "",
+    loanReason: "",
+    annualIncome: "",
+    guarantors: [""],
+    loanType: "",
+    loanLimit: "",
+    approvedAmount: "",
+    loanDuration: "",
+    interestRate: "",
+    emiAmount: "",
   });
 
   const tableData = [
     ["१", "कर्ज रक्कम", formData.loanAmount, "loanAmount"],
     ["२", "कर्ज मर्यादा रुपये", formData.loanLimit, "loanLimit"],
-    ["३", "मंजूर हायरपर्चेस रक्कम रुपये", formData.approvedAmount, "approvedAmount"],
+    [
+      "३",
+      "मंजूर हायरपर्चेस रक्कम रुपये",
+      formData.approvedAmount,
+      "approvedAmount",
+    ],
     ["४", "कर्जाचे कारण", formData.loanReason, "loanReason"],
-    ["५", "कर्जाची मुदत / महिन्ये / वर्षे", "३ वर्ष"],
-    ["६", "व्याज दर [स.ध.अ.]", "११%"],
-    ["७", "हप्ता रक्कम रुपये [प्रतिमहिना]", "१४८०/-"],
+    [
+      "५",
+      "कर्जाची मुदत / महिन्ये / वर्षे",
+      formData.loanDuration,
+      "loanDuration",
+    ],
+    ["६", "व्याज दर [स.ध.अ.]", formData.interestRate, "interestRate"],
+    ["७", "हप्ता रक्कम रुपये [प्रतिमहिना]", formData.emiAmount, "emiAmount"],
   ];
 
   const handleInputChange = (field, value) => {
@@ -52,11 +68,63 @@ const CreditAppraisalNote = () => {
       </h1>
 
       <div className="mt-6 space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <strong>कर्जदाराचे खाते क्रमांक:</strong>{" "}
+            <input
+              type="text"
+              value={formData.borrowerAccountNo}
+              placeholder="कर्जदाराचे खाते क्रमांक"
+              onChange={(e) => {
+                if (isNaN(e.target.value)) return;
+                handleInputChange("borrowerAccountNo", e.target.value);
+              }}
+              className="border px-2 py-1 w-full"
+            />
+          </div>
+          <div>
+            <strong>तारीख:</strong>{" "}
+            <input
+              type="text"
+              value={new Date(formData.date).toLocaleDateString("en-GB")}
+              onChange={(e) => {
+                const [day, month, year] = e.target.value.split("/");
+                const formattedDate = new Date(`${year}-${month}-${day}`)
+                  .toISOString()
+                  .split("T")[0];
+                handleInputChange("date", formattedDate);
+              }}
+              placeholder="DD/MM/YYYY"
+              className="border px-2 py-1 w-full"
+            />
+          </div>
+        </div>
+        <p>
+          <strong>कर्ज प्रकार:</strong>{" "}
+          <select
+            value={formData.loanType}
+            onChange={(e) => handleInputChange("loanType", e.target.value)}
+            className="border px-2 py-1 w-full"
+          >
+            <option value="" disabled>
+              कर्ज प्रकार निवडा
+            </option>
+            <option value="हायरपर्चेस कर्ज">हायरपर्चेस कर्ज</option>
+            <option value="व्यक्तिगत कर्ज">व्यक्तिगत कर्ज</option>
+            <option value="व्यवसाय कर्ज">व्यवसाय कर्ज</option>
+            <option value="गृह कर्ज">गृह कर्ज</option>
+            <option value="शिक्षण कर्ज">शिक्षण कर्ज</option>
+            <option value="वाहन कर्ज">वाहन कर्ज</option>
+            <option value="कृषी कर्ज">कृषी कर्ज</option>
+            <option value="इतर">इतर</option>
+          </select>
+        </p>
         <p>
           <strong>कर्जदाराचे नाव:</strong>{" "}
           <input
             type="text"
             value={formData.borrowerName}
+            placeholder="कर्जदाराचे नाव"
             onChange={(e) => handleInputChange("borrowerName", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -66,6 +134,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.mobileNumber}
+            placeholder="मोबाईल नंबर"
             onChange={(e) => handleInputChange("mobileNumber", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -75,6 +144,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.address}
+            placeholder="संपूर्ण पत्ता"
             onChange={(e) => handleInputChange("address", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -84,6 +154,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.occupation}
+            placeholder="व्यवसाय"
             onChange={(e) => handleInputChange("occupation", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -93,6 +164,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.totalIncome}
+            placeholder="संपूर्ण उत्पन्न"
             onChange={(e) => handleInputChange("totalIncome", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -102,6 +174,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.loanAmount}
+            placeholder="कर्ज रक्कम"
             onChange={(e) => handleInputChange("loanAmount", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -111,6 +184,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.loanReason}
+            placeholder="कर्ज मागणीचे कारण"
             onChange={(e) => handleInputChange("loanReason", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -120,6 +194,7 @@ const CreditAppraisalNote = () => {
           <input
             type="text"
             value={formData.annualIncome}
+            placeholder="वार्षिक उत्पन्न"
             onChange={(e) => handleInputChange("annualIncome", e.target.value)}
             className="border px-2 py-1 w-full"
           />
@@ -131,6 +206,7 @@ const CreditAppraisalNote = () => {
               <input
                 type="text"
                 value={guarantor}
+                placeholder="जामीनदाराचे नाव"
                 onChange={(e) => {
                   const updatedGuarantors = [...formData.guarantors];
                   updatedGuarantors[index] = e.target.value;
@@ -191,8 +267,9 @@ const CreditAppraisalNote = () => {
                   type="text"
                   value={value}
                   name={name}
-                    onChange={(e) => handleInputChange(name, e.target.value)}
-                //   onChange={(e) => handleTableChange(index, e.target.value)}
+                  placeholder={desc}
+                  onChange={(e) => handleInputChange(name, e.target.value)}
+                  //   onChange={(e) => handleTableChange(index, e.target.value)}
                   className="border px-2 py-1 w-full"
                 />
               </td>
