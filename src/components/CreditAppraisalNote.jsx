@@ -16,16 +16,17 @@ const CreditAppraisalNote = () => {
   });
 
   const tableData = [
-    ["१", "कर्ज रक्कम", formData.loanAmount],
-    ["२", "कर्ज मर्यादा रुपये", formData.loanLimit],
-    ["३", "मंजूर हायरपर्चेस रक्कम रुपये", formData.approvedAmount],
-    ["४", "कर्जाचे कारण", formData.loanReason],
+    ["१", "कर्ज रक्कम", formData.loanAmount, "loanAmount"],
+    ["२", "कर्ज मर्यादा रुपये", formData.loanLimit, "loanLimit"],
+    ["३", "मंजूर हायरपर्चेस रक्कम रुपये", formData.approvedAmount, "approvedAmount"],
+    ["४", "कर्जाचे कारण", formData.loanReason, "loanReason"],
     ["५", "कर्जाची मुदत / महिन्ये / वर्षे", "३ वर्ष"],
     ["६", "व्याज दर [स.ध.अ.]", "११%"],
     ["७", "हप्ता रक्कम रुपये [प्रतिमहिना]", "१४८०/-"],
   ];
 
   const handleInputChange = (field, value) => {
+    console.log("Field:", field, "Value:", value);
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -123,7 +124,7 @@ const CreditAppraisalNote = () => {
             className="border px-2 py-1 w-full"
           />
         </p>
-        <p>
+        <div>
           <strong>जामीनदार:</strong>{" "}
           {formData.guarantors.map((guarantor, index) => (
             <div key={index} className="flex items-center space-x-2 mb-2">
@@ -167,7 +168,7 @@ const CreditAppraisalNote = () => {
           >
             जामीनदार जोडा
           </button>
-        </p>
+        </div>
       </div>
 
       <table className="w-full border border-black mt-6 border-collapse">
@@ -181,7 +182,7 @@ const CreditAppraisalNote = () => {
           </tr>
         </thead>
         <tbody>
-          {tableData.map(([no, desc, value], index) => (
+          {tableData.map(([no, desc, value, name], index) => (
             <tr key={no}>
               <td className="border border-black px-4 py-2">{no}</td>
               <td className="border border-black px-4 py-2">{desc}</td>
@@ -189,8 +190,9 @@ const CreditAppraisalNote = () => {
                 <input
                   type="text"
                   value={value}
-                  name={value}
-                  onChange={(e) => handleTableChange(index, e.target.value)}
+                  name={name}
+                    onChange={(e) => handleInputChange(name, e.target.value)}
+                //   onChange={(e) => handleTableChange(index, e.target.value)}
                   className="border px-2 py-1 w-full"
                 />
               </td>
