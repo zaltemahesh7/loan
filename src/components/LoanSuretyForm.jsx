@@ -1,18 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const LoanSuretyForm = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-3xl mx-auto bg-white p-8 shadow-lg rounded-2xl font-sans text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center border-b pb-4 mb-4">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को - ऑपरेटिव्ह बँक लि.
-          </h1>
-          <p>कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Reference numbers and date */}
         <div className="flex justify-between text-sm mb-4">
@@ -60,7 +58,7 @@ const LoanSuretyForm = () => {
           <p className="mt-4 font-semibold">सही</p>
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

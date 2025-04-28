@@ -1,18 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const LoanApprovalLetter = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-md text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center border-b pb-4 mb-6">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को-ऑप. बँक लि., चांदवड
-          </h1>
-          <p className="text-sm">कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Recipient Details */}
         <div className="mb-6 space-y-1">
@@ -54,7 +52,7 @@ const LoanApprovalLetter = () => {
           </div>
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

@@ -1,22 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const LoanAgreementChecklist = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-lg font-bold">
-            दि चांदवड मर्चंट्स को-ऑप. बँक लि., चांदवड
-          </h1>
-          <p className="text-sm">कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-          <h2 className="mt-4 text-md font-semibold underline">
-            कर्जदार: हायसपेस
-          </h2>
-          <p className="mt-1 text-sm underline">कार्यालयीन ज्ञेरा</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Applicant Info */}
         <div className="mb-4">
@@ -67,7 +61,7 @@ const LoanAgreementChecklist = () => {
           <p className="mt-2">तारीख: २५/०१/२०१७</p>
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

@@ -1,21 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const PromissoryNote = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-md text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center border-b pb-4 mb-6">
-          <h1 className="text-lg font-bold">
-            दि चांदवड मर्चंट्स को-ऑप. बँक लि., चांदवड
-          </h1>
-          <p className="text-sm">कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-          <h2 className="mt-4 text-md font-semibold underline">
-            चेक शिर्षक (प्रॉमिसरी नोट)
-          </h2>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Loan Info */}
         <div className="mb-4">
@@ -71,7 +66,7 @@ const PromissoryNote = () => {
           <div className="h-10 border-b w-1/2" />
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

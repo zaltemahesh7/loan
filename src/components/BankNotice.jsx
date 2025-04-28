@@ -1,17 +1,60 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import LoanSanctionLetter from "./LoanSanctionLetter";
+import LoanInstructions from "./LoanInstructions";
+import LoanSuretyForm from "./LoanSuretyForm";
+import VehicleLoanAgreement from "./VehicleLoanAgreement";
+import InsurableInterestDeclaration from "./InsurableInterestDeclaration";
+import LoanRecoveryNotice from "./LoanRecoveryNotice";
+import LoanApprovalLetter from "./LoanApprovalLetter";
+import PromissoryNote from "./PromissoryNote";
+import LoanAgreementChecklist from "./LoanAgreementChecklist";
+import CommonHeader from "./CommonHeader";
+import { Button } from "./ui/button";
 
 const BankNotice = () => {
+  const handlePrint = () => {
+    const printContent = document.querySelector(".max-w-3xl");
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print</title>
+          <style>
+            @page {
+              size: A4 portrait;
+              margin: 0;
+            }
+            body {
+              margin: 0;
+              font-family: sans-serif;
+            }
+            .max-w-3xl {
+              max-width: 210mm;
+              margin: auto;
+              padding: 20mm;
+              background: white;
+            }
+          </style>
+        </head>
+        <body>${printContent.innerHTML}</body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  };
+
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6 font-sans">
-        <div className="text-center border-b pb-4">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को - ऑपरेटिव्ह बँक लि.
-          </h1>
-          <p className="text-sm">कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         <div className="mt-6">
           <h2 className="font-semibold text-lg mb-2">
@@ -57,7 +100,18 @@ const BankNotice = () => {
           </p>
         </div>
       </div>
-    </NavigationWrapper>
+      <LoanSanctionLetter />
+      <LoanInstructions />
+      <LoanSuretyForm />
+      <VehicleLoanAgreement />
+      <InsurableInterestDeclaration />
+      <LoanRecoveryNotice />
+      <LoanApprovalLetter />
+      <PromissoryNote />
+      <LoanAgreementChecklist />
+      
+      <Button onClick={handlePrint}>Print</Button>
+    </>
   );
 };
 

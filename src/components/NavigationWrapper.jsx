@@ -27,14 +27,14 @@ const NavigationWrapper = ({ routes, children }) => {
         <button
           onClick={goToPrev}
           disabled={currentIndex === 0}
-          className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+          className="px-4 cursor-pointer py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
         >
           ← Back
         </button>
         <button
           onClick={goToNext}
           disabled={currentIndex === routes.length - 1}
-          className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50"
+          className="px-4 cursor-pointer py-2 bg-blue-600 text-white rounded disabled:opacity-50"
         >
           Next →
         </button>

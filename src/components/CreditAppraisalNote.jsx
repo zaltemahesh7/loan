@@ -44,7 +44,6 @@ const CreditAppraisalNote = () => {
   ];
 
   const handleInputChange = (field, value) => {
-    console.log("Field:", field, "Value:", value);
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

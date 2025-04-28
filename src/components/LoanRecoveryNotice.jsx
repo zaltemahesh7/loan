@@ -1,18 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const LoanRecoveryNotice = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-2xl text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center border-b pb-4 mb-6">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को-ऑप. बँक लि., चांदवड
-          </h1>
-          <p>कामशेत, चांदवड जि. नाशिक (422210)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Title */}
         <h2 className="text-center text-lg font-semibold underline mb-4">
@@ -55,7 +53,7 @@ const LoanRecoveryNotice = () => {
           <p className="font-medium">प्रशासकीय अधिकारी</p>
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

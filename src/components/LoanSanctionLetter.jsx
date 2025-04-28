@@ -1,18 +1,16 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import CommonHeader from "./CommonHeader";
 
 const LoanSanctionLetter = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-2xl font-sans text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center border-b pb-4 mb-4">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को - ऑपरेटिव्ह बँक लि.
-          </h1>
-          <p className="">कामशेत, चांदवड जि. नाशिक (४२२२१०)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Date and Ref */}
         <div className="flex justify-between mb-4">
@@ -108,7 +106,7 @@ const LoanSanctionLetter = () => {
           कर्जाची अटी व नियम वाचून, समजून कर्ज स्वीकारण्यात आले आहे.
         </p>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 

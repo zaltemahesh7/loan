@@ -1,18 +1,16 @@
 import { routes } from "@/constent";
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
+import CommonHeader from "./CommonHeader";
 
 const InsurableInterestDeclaration = () => {
   return (
-    <NavigationWrapper routes={routes}>
-      <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-2xl text-sm leading-relaxed">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-xl font-bold">
-            दि चांदवड मर्चंट्स को-ऑप. बँक लि.
-          </h1>
-          <p>कामशेत, चांदवड जि. नाशिक (422210)</p>
-        </div>
+    <>
+      <div
+        className="max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed"
+        style={{ minHeight: "297mm" }}
+      >
+        <CommonHeader />
 
         {/* Title */}
         <h2 className="text-center font-semibold text-lg underline mb-6">
@@ -58,7 +56,7 @@ const InsurableInterestDeclaration = () => {
           <p>सही: _______________________________</p>
         </div>
       </div>
-    </NavigationWrapper>
+    </>
   );
 };
 
