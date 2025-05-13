@@ -14,39 +14,6 @@ import CommonHeader from "./CommonHeader";
 import { Button } from "./ui/button";
 
 const BankNotice = () => {
-  const handlePrint = () => {
-    const printContent = document.querySelector(".max-w-3xl");
-    const printWindow = window.open("", "_blank");
-    printWindow.document.open();
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>Print</title>
-          <style>
-            @page {
-              size: A4 portrait;
-              margin: 0;
-            }
-            body {
-              margin: 0;
-              font-family: sans-serif;
-            }
-            .max-w-3xl {
-              max-width: 210mm;
-              margin: auto;
-              padding: 20mm;
-              background: white;
-            }
-          </style>
-        </head>
-        <body>${printContent.innerHTML}</body>
-      </html>
-    `);
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
-  };
 
   return (
     <>
@@ -57,8 +24,8 @@ const BankNotice = () => {
         <CommonHeader />
 
         <div className="mt-6">
-          <h2 className="font-semibold text-lg mb-2">
-            शाखा व्यवस्थापक / क्षेत्रीयप्रमुख प्रमुख यांचा अभियान :
+          <h2 className="font-semibold text-center text-lg mb-2">
+            हायरपर्चेस करारनामा
           </h2>
           <p className="text-sm mb-2">
             अपूर्ण व शिथील पुनर्भरण संप्रकांच्या यादीत उल्लेख असलेल्या खातेदार
@@ -109,8 +76,17 @@ const BankNotice = () => {
       <LoanApprovalLetter />
       <PromissoryNote />
       <LoanAgreementChecklist />
-      
-      <Button onClick={handlePrint}>Print</Button>
+
+      <div
+        className="text-right mt-4 fixed bottom-4 right-4 print:hidden"
+      >
+        <button
+          onClick={() => window.print()}
+          className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600"
+        >
+          Print
+        </button>
+      </div>
     </>
   );
 };

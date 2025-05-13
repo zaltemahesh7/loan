@@ -15,34 +15,38 @@ import LoanApprovalLetter from "./components/LoanApprovalLetter";
 import PromissoryNote from "./components/PromissoryNote";
 import LoanAgreementChecklist from "./components/LoanAgreementChecklist";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
-  
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CreditAppraisalNote />} />
-        <Route path="/bank-notice" element={<BankNotice />} />
-        <Route path="/loan-sanction-letter" element={<LoanSanctionLetter />} />
-        <Route path="/loan-instructions" element={<LoanInstructions />} />
-        <Route path="/loan-surety-form" element={<LoanSuretyForm />} />
-        <Route
-          path="/vehicle-loan-agreement"
-          element={<VehicleLoanAgreement />}
-        />
-        <Route
-          path="/insurable-interest-declaration"
-          element={<InsurableInterestDeclaration />}
-        />
-        <Route path="/loan-recovery-notice" element={<LoanRecoveryNotice />} />
-        <Route path="/loan-approval-letter" element={<LoanApprovalLetter />} />
-        <Route path="/promissory-note" element={<PromissoryNote />} />
-        <Route
-          path="/loan-agreement-checklist"
-          element={<LoanAgreementChecklist />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CreditAppraisalNote />} />
+          <Route path="/bank-notice" element={<BankNotice />} />
+          <Route path="/loan-sanction-letter" element={<LoanSanctionLetter />} />
+          <Route path="/loan-instructions" element={<LoanInstructions />} />
+          <Route path="/loan-surety-form" element={<LoanSuretyForm />} />
+          <Route
+            path="/vehicle-loan-agreement"
+            element={<VehicleLoanAgreement />}
+          />
+          <Route
+            path="/insurable-interest-declaration"
+            element={<InsurableInterestDeclaration />}
+          />
+          <Route path="/loan-recovery-notice" element={<LoanRecoveryNotice />} />
+          <Route path="/loan-approval-letter" element={<LoanApprovalLetter />} />
+          <Route path="/promissory-note" element={<PromissoryNote />} />
+          <Route
+            path="/loan-agreement-checklist"
+            element={<LoanAgreementChecklist />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -2,8 +2,11 @@ import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
 import CommonHeader from "./CommonHeader";
+import { useSelector } from "react-redux";
 
 const PromissoryNote = () => {
+  const user = useSelector((state) => state.user);
+
   return (
     <>
       <div
@@ -13,12 +16,16 @@ const PromissoryNote = () => {
         <CommonHeader />
 
         {/* Loan Info */}
+        <div className="text-center flex flex-col items-center m-4 gap-3">
+          <p className=" text-2xl font-semibold">  वचन चिठ्ठी   </p>
+          <p className=" text-2xl font-semibold">  (प्रॉमिसरी नोट)   </p>
+        </div>
         <div className="mb-4">
           <p>
-            <strong>रक्कम रु.:</strong> ₹५०,०००/-
+            <strong>रक्कम रु.:</strong> ₹{user?.userInfo?.approvedAmount}/-
           </p>
           <p>
-            <strong>दिनांक:</strong> ___ / ___ / २०२५
+            <strong>दिनांक:</strong> <input type="date" name="date" id="date" value={user?.userInfo?.date} />
           </p>
         </div>
 

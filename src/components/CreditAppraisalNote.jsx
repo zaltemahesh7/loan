@@ -1,8 +1,14 @@
 import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserField } from "@/redux/user/userSlice";
+
 
 const CreditAppraisalNote = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = React.useState({
     date: new Date().toISOString().split("T")[0],
     borrowerAccountNo: "",
@@ -45,7 +51,10 @@ const CreditAppraisalNote = () => {
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    dispatch(updateUserField({ field, value }));
   };
+
+  console.log(user)
 
   const handleTableChange = (index, value) => {
     const updatedTable = [...formData.tableData];
@@ -68,14 +77,13 @@ const CreditAppraisalNote = () => {
         <h1 className="text-center text-2xl font-bold underline mt-2">
           CREDIT APPRAISAL NOTE
         </h1>
-
         <div className="mt-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <strong>कर्जदाराचे खाते क्रमांक:</strong>{" "}
               <input
                 type="text"
-                value={formData.borrowerAccountNo}
+                value={user?.userInfo?.borrowerAccountNo}
                 placeholder="कर्जदाराचे खाते क्रमांक"
                 onChange={(e) => {
                   if (isNaN(e.target.value)) return;
@@ -108,13 +116,13 @@ const CreditAppraisalNote = () => {
                 कर्ज प्रकार निवडा
               </option>
               <option value="हायरपर्चेस कर्ज">हायरपर्चेस कर्ज</option>
-              <option value="व्यक्तिगत कर्ज">व्यक्तिगत कर्ज</option>
+              {/* <option value="व्यक्तिगत कर्ज">व्यक्तिगत कर्ज</option>
               <option value="व्यवसाय कर्ज">व्यवसाय कर्ज</option>
               <option value="गृह कर्ज">गृह कर्ज</option>
               <option value="शिक्षण कर्ज">शिक्षण कर्ज</option>
               <option value="वाहन कर्ज">वाहन कर्ज</option>
               <option value="कृषी कर्ज">कृषी कर्ज</option>
-              <option value="इतर">इतर</option>
+              <option value="इतर">इतर</option> */}
             </select>
           </p>
           <p>
