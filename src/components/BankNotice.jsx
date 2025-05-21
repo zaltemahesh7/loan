@@ -33,7 +33,7 @@ const BankNotice = () => {
             लिहून घेणर: दि चांदवड मचचन्टस्को - ऑप . बँक दि . चांदवड
           </p>
           <p className=" font-bold mb-2">
-            लिहून देणार: दि चांदवड मचचन्टस्को - ऑप . बँक दि . चांदवड
+            लिहून देणार: {user?.userInfo?.borrowerName}
           </p>
           <p className=" font-bold mb-2">
             व्यवसाय: {user?.userInfo?.occupation}
