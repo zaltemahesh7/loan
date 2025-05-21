@@ -118,3 +118,25 @@
     @apply bg-background text-foreground;
   }
 }
+body {
+      font-family: 'Devanagari', 'Mangal', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #004080;
+    }
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .signature {
+      margin-top: 40px;
+      text-align: right;
+      font-weight: bold;
+    }
