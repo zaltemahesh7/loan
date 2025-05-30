@@ -79,7 +79,7 @@ const CreditAppraisalNote = () => {
             </div>
           </div>
 
-          <p>
+          <div>
             <strong>कर्ज प्रकार:</strong>
             <select
               value={userInfo?.loanType || ""}
@@ -89,9 +89,9 @@ const CreditAppraisalNote = () => {
               <option value="" disabled>कर्ज प्रकार निवडा</option>
               <option value="हायरपर्चेस कर्ज">हायरपर्चेस कर्ज</option>
             </select>
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>कर्जदाराचे नाव:</strong>
             <input
               type="text"
@@ -99,9 +99,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("borrowerName", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>मोबाईल नंबर:</strong>
             <input
               type="text"
@@ -109,9 +109,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("mobileNumber", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>संपूर्ण पत्ता:</strong>
             <input
               type="text"
@@ -119,9 +119,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("address", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>व्यवसाय:</strong>
             <input
               type="text"
@@ -129,9 +129,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("occupation", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>संपूर्ण उत्पन्न:</strong>
             <input
               type="text"
@@ -139,9 +139,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("totalIncome", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>कर्ज मागणीचे कारण:</strong>
             <input
               type="text"
@@ -149,9 +149,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("loanReason", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             <strong>वार्षिक उत्पन्न:</strong>
             <input
               type="text"
@@ -159,7 +159,7 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("annualIncome", e.target.value)}
               className="border px-2 py-1 w-full"
             />
-          </p>
+          </div>
 
           <div>
             <strong>जामीनदार:</strong>
