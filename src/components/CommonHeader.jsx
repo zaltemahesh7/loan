@@ -4,7 +4,7 @@ import BankLogo from "../assets/chandvad_merchant.png"; // Adjust the path as ne
 const CommonHeader = () => {
   return (
     <div>
-      <div className=" flex items-center justify-between border-b max-w-3xl mx-auto bg-white p-8 font-sans text-sm leading-relaxed">
+      <div className=" flex items-center justify-between border-b max-w-3xl mx-auto bg-white p-5 pt-0 font-sans text-sm leading-relaxed">
         <div>
           <img src={BankLogo} alt="Bank Logo" className="w-32 h-auto" />
         </div>

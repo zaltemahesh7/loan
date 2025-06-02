@@ -35,10 +35,11 @@ const CreditAppraisalNote = () => {
     ["१", "कर्ज रक्कम", userInfo?.loanAmount, "loanAmount"],
     ["२", "कर्ज मर्यादा रुपये", userInfo?.loanLimit, "loanLimit"],
     ["३", "मंजूर हायरपर्चेस रक्कम रुपये", userInfo?.approvedAmount, "approvedAmount"],
-    ["४", "कर्जाचे कारण", userInfo?.loanReason, "loanReason"],
-    ["५", "कर्जाची मुदत / महिन्ये / वर्षे", userInfo?.loanDuration, "loanDuration"],
-    ["६", "व्याज दर [स.ध.अ.]", userInfo?.interestRate, "interestRate"],
-    ["७", "हप्ता रक्कम रुपये [प्रतिमहिना]", userInfo?.emiAmount, "emiAmount"],
+    ["४", "अक्षरी मंजूर हायरपर्चेस रक्कम रुपये", userInfo?.approvedAmountInWord, "approvedAmountInWord"],
+    ["५", "कर्जाचे कारण", userInfo?.loanReason, "loanReason"],
+    ["६", "कर्जाची मुदत / महिन्ये / वर्षे", userInfo?.loanDuration, "loanDuration"],
+    ["७", "व्याज दर [स.ध.अ.]", userInfo?.interestRate, "interestRate"],
+    ["", "हप्ता रक्कम रुपये [प्रतिमहिना]", userInfo?.emiAmount, "emiAmount"],
   ];
 
   return (
@@ -147,6 +148,15 @@ const CreditAppraisalNote = () => {
               type="text"
               value={userInfo?.loanReason || ""}
               onChange={(e) => handleInputChange("loanReason", e.target.value)}
+              className="border px-2 py-1 w-full"
+            />
+          </div>
+          <div>
+            <strong>वाहनाचे नाव:</strong>
+            <input
+              type="text"
+              value={userInfo?.borrowedVehicle || ""}
+              onChange={(e) => handleInputChange("borrowedVehicle", e.target.value)}
               className="border px-2 py-1 w-full"
             />
           </div>
