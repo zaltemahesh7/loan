@@ -160,6 +160,15 @@ const CreditAppraisalNote = () => {
               className="border px-2 py-1 w-full"
             />
           </div>
+          <div>
+            <strong>अधिकृत विक्रत्याचे नाव:</strong>
+            <input
+              type="text"
+              value={userInfo?.seller || ""}
+              onChange={(e) => handleInputChange("seller", e.target.value)}
+              className="border px-2 py-1 w-full"
+            />
+          </div>
 
           <div>
             <strong>वार्षिक उत्पन्न:</strong>
