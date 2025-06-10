@@ -20,6 +20,7 @@ const initialState = {
     interestRate: "",
     emiAmount: "",
     borrowedVehicle: "",
+    vehiclePrice: "",
     seller: "",
   },
   guarantors: [""],

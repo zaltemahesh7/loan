@@ -39,7 +39,7 @@ const BankNotice = () => {
             मंजूर रक्कम: {user?.userInfo?.approvedAmount}
           </p>
           <p className="font-bold mb-1">
-            संपूर्ण पत्ता : मु.पो.नाईकवाडी पुरा,चांदवड ता.चांदवड जि.नाशिक
+            संपूर्ण पत्ता : {user?.userInfo?.address}
           </p>
           <div>
             <p className="font-bold mb-1">जामीनदाराची नावे:</p>
@@ -117,8 +117,8 @@ const BankNotice = () => {
       <LoanSanctionLetter />
       <LoanInstructions />
       <LoanSuretyForm />
-      {/* <VehicleLoanAgreement /> */}
-      {/* <InsurableInterestDeclaration /> */}
+      <VehicleLoanAgreement />
+      <InsurableInterestDeclaration />
       {/* <LoanRecoveryNotice /> */}
       {/* <LoanApprovalLetter /> */}
       {/* <PromissoryNote /> */}

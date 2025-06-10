@@ -2,10 +2,7 @@ import React from "react";
 import NavigationWrapper from "./NavigationWrapper";
 import { routes } from "@/constent";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  addGuarantor,
-  updateUserField,
-} from "@/redux/user/userSlice";
+import { addGuarantor, updateUserField } from "@/redux/user/userSlice";
 
 const CreditAppraisalNote = () => {
   const { userInfo, guarantors } = useSelector((state) => state.agreement);
@@ -34,10 +31,25 @@ const CreditAppraisalNote = () => {
   const tableData = [
     ["१", "कर्ज रक्कम", userInfo?.loanAmount, "loanAmount"],
     ["२", "कर्ज मर्यादा रुपये", userInfo?.loanLimit, "loanLimit"],
-    ["३", "मंजूर हायरपर्चेस रक्कम रुपये", userInfo?.approvedAmount, "approvedAmount"],
-    ["४", "अक्षरी मंजूर हायरपर्चेस रक्कम रुपये", userInfo?.approvedAmountInWord, "approvedAmountInWord"],
+    [
+      "३",
+      "मंजूर हायरपर्चेस रक्कम रुपये",
+      userInfo?.approvedAmount,
+      "approvedAmount",
+    ],
+    [
+      "४",
+      "अक्षरी मंजूर हायरपर्चेस रक्कम रुपये",
+      userInfo?.approvedAmountInWord,
+      "approvedAmountInWord",
+    ],
     ["५", "कर्जाचे कारण", userInfo?.loanReason, "loanReason"],
-    ["६", "कर्जाची मुदत / महिन्ये / वर्षे", userInfo?.loanDuration, "loanDuration"],
+    [
+      "६",
+      "कर्जाची मुदत / महिन्ये / वर्षे",
+      userInfo?.loanDuration,
+      "loanDuration",
+    ],
     ["७", "व्याज दर [स.ध.अ.]", userInfo?.interestRate, "interestRate"],
     ["", "हप्ता रक्कम रुपये [प्रतिमहिना]", userInfo?.emiAmount, "emiAmount"],
   ];
@@ -65,7 +77,10 @@ const CreditAppraisalNote = () => {
               <input
                 type="text"
                 value={userInfo?.borrowerAccountNo || ""}
-                onChange={(e) => !isNaN(e.target.value) && handleInputChange("borrowerAccountNo", e.target.value)}
+                onChange={(e) =>
+                  !isNaN(e.target.value) &&
+                  handleInputChange("borrowerAccountNo", e.target.value)
+                }
                 className="border px-2 py-1 w-full"
               />
             </div>
@@ -73,7 +88,7 @@ const CreditAppraisalNote = () => {
               <strong>तारीख:</strong>
               <input
                 type="date"
-                value={userInfo?.date }
+                value={userInfo?.date}
                 onChange={(e) => handleInputChange("date", e.target.value)}
                 className="border px-2 py-1 w-full"
               />
@@ -87,7 +102,9 @@ const CreditAppraisalNote = () => {
               onChange={(e) => handleInputChange("loanType", e.target.value)}
               className="border px-2 py-1 w-full"
             >
-              <option value="" disabled>कर्ज प्रकार निवडा</option>
+              <option value="" disabled>
+                कर्ज प्रकार निवडा
+              </option>
               <option value="हायरपर्चेस कर्ज">हायरपर्चेस कर्ज</option>
             </select>
           </div>
@@ -97,7 +114,9 @@ const CreditAppraisalNote = () => {
             <input
               type="text"
               value={userInfo?.borrowerName || ""}
-              onChange={(e) => handleInputChange("borrowerName", e.target.value)}
+              onChange={(e) =>
+                handleInputChange("borrowerName", e.target.value)
+              }
               className="border px-2 py-1 w-full"
             />
           </div>
@@ -107,7 +126,9 @@ const CreditAppraisalNote = () => {
             <input
               type="text"
               value={userInfo?.mobileNumber || ""}
-              onChange={(e) => handleInputChange("mobileNumber", e.target.value)}
+              onChange={(e) =>
+                handleInputChange("mobileNumber", e.target.value)
+              }
               className="border px-2 py-1 w-full"
             />
           </div>
@@ -156,7 +177,9 @@ const CreditAppraisalNote = () => {
             <input
               type="text"
               value={userInfo?.borrowedVehicle || ""}
-              onChange={(e) => handleInputChange("borrowedVehicle", e.target.value)}
+              onChange={(e) =>
+                handleInputChange("borrowedVehicle", e.target.value)
+              }
               className="border px-2 py-1 w-full"
             />
           </div>
@@ -175,7 +198,9 @@ const CreditAppraisalNote = () => {
             <input
               type="text"
               value={userInfo?.annualIncome || ""}
-              onChange={(e) => handleInputChange("annualIncome", e.target.value)}
+              onChange={(e) =>
+                handleInputChange("annualIncome", e.target.value)
+              }
               className="border px-2 py-1 w-full"
             />
           </div>
@@ -193,22 +218,30 @@ const CreditAppraisalNote = () => {
                 <button
                   onClick={() => handleRemoveGuarantor(i)}
                   className="px-2 py-1 bg-red-500 text-white rounded"
-                >X</button>
+                >
+                  X
+                </button>
               </div>
             ))}
             <button
               onClick={handleAddGuarantor}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
-            >जामीनदार जोडा</button>
+            >
+              जामीनदार जोडा
+            </button>
           </div>
         </div>
 
         <table className="w-full border border-black mt-6 border-collapse">
           <thead>
             <tr>
-              <th className="border border-black px-4 py-2 text-left">अ.क्र.</th>
+              <th className="border border-black px-4 py-2 text-left">
+                अ.क्र.
+              </th>
               <th className="border border-black px-4 py-2 text-left">विवरण</th>
-              <th className="border border-black px-4 py-2 text-left">हायरपर्चेस लोन</th>
+              <th className="border border-black px-4 py-2 text-left">
+                हायरपर्चेस लोन
+              </th>
             </tr>
           </thead>
           <tbody>

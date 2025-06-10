@@ -20,7 +20,7 @@ const LoanSuretyForm = () => {
             जामीनदार करारनामा
           </h1> */}
 
-          <p>
+          <div>
             आम्ही जामीनदार:
             <br />
             <ol>
@@ -30,7 +30,7 @@ const LoanSuretyForm = () => {
                 </li>
               ))}
             </ol>
-          </p>
+          </div>
 
           <p className="mt-2">
             असा करार करतो की, आम्ही जामीनदार राहण्यास तयार असून, वर नमूद
@@ -91,11 +91,11 @@ const LoanSuretyForm = () => {
           <div className="mt-1">
             <ol>
               {user?.guarantors?.map((guarantor, index) => (
-                <li key={index}>
+                <li key={index} className="grid grid-cols-2">
                   <p>
                     जामीनदार क्र. {index + 1}) {guarantor}{" "}
-                    ____________________________
                   </p>
+                    ________________________________________
                 </li>
               ))}
             </ol>
